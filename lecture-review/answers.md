@@ -7,6 +7,25 @@ The relationship between streams and observer pattern is that streams implement 
 
 Streams are useful for modelling asynchronous data that you don't know the definite potential size of or when you're not sure of when it will arrive into your application. They can be used for manny beneficial purposes such as user inputs, caches, HTTP requests and data structures. In rich web development, streams are used to solve the synchronisation problem and increase the performance of applications, even when the memory might be limited. They are also a big part of controlling the data buffering, as the start and end of streams can be detected, streams can be chained together, errors can be handled and streams can be cancelled. This would improve the architecture of applications as it would reduce processing problems such as keyboard input, mouse clicks and timers.
 
+
 # Question 2
+The RxJS library allows you to perform calls to retirve data asynchronously, manipulate it when it arrives and make subsequent called depending on the data emitted. You can handle asynchronous network responses to API requests by following these components in the RxJS library:
+- Consumers - also know as observer, they process and accept events from the consumers.
+- Producers - these are the sources of the data, such as bytes from a file.
+- Time - as there is always a concept of time, this can be important to manipulate streams.
+- Data pipeline - this is the processing of output from the producer to the consumer.
+
+The following RxJS operators can also be used to handle asynchronous network reponses to the API requests:
+- map - this manipulates responses from the API.
+- flatMap - based on the emitted data by a observable, this is used to create new observable.
+- tap - to run side actions when the observable creates new data.
+- combineLatest - combines multiple observables into one observable.
+
+Handling asynchronous network responses to API requests in the RxJS library, is possible by creating an observable stream. It allows an implementation of the Observable type. This will fire up a HTTP request which collect new values and allow multiple events to work. The operators are known as the function that is created and builds new observables. Many different operators are found in the RxJS library such as map(), tap(), merge() and filter(). All these operations allow a function that takes a source observable to be returned. After it is returned to the function, the operators job is to observe the data observables and even transform them. The operator is also able to then create new onservables of these transformed values.
+
+In my opinion, there are many benefits to using streams library for networking over promises. A major benefit is that the streams library not only works like promises and provides features of promises, but can also accomplish way more. Promises are not able to work on multiple of events in an application. On the other hand, observables can handle 0, 1 or multiple events or multiple values. The same API can also be utilisied in each event. I think the stream libraries are beneficial to accept multiple values, stay clean after being used and allow to be cancelled any time.
+
+I think some downsides to using streams library are they can be harder to debug and error handling. Without structure, it is easy to get entangled in a multiple of streams and be confused on what to do next. Whereas, sometimes simple functions can be more straightforward to debug, especially if they are sequentially composed. Another issue that you could run into while debugging streams is that a large amount of abstarctions can allow no space for plugging into a stream and debugging it, the same way as debugging a function. Another downside to streams library for networking over is that RxJS Observables doesn't 'trap' any errors. When there is an error at the end of the observer chain, it will just be re-thrown. This makes it harder to spot errors.
+
 
 # Question 3
