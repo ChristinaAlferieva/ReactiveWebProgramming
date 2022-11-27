@@ -74,3 +74,11 @@ clicked.subscribe(event => {
 		i++;
 	});
 });
+
+//Clears list when clear notes button is clicked
+const clearSrc = Rx.Observable.fromEvent(clearBtn, 'click');
+
+clearSrc.subscribe(event => {
+	var note = document.getElementsByTagName("ul");
+	note[0].innerHTML = "";
+});
