@@ -20,3 +20,14 @@ object = array.map(index => {
 	node_list[i].appendChild(span);
 	i++;
 });
+
+//Array for close element
+closeArray = Array.from(close)
+closeObject = closeArray.map(index => {
+	const clsSource = Rx.Observable.fromEvent(close[i], 'click');
+	clsSource.subscribe(event => {
+		var section = clsSource.sourceObj.parentElement;
+		section.style.display = "none"; 
+	});
+	i++;
+});
