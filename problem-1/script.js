@@ -31,3 +31,46 @@ closeObject = closeArray.map(index => {
 	});
 	i++;
 });
+
+//Subscribing the observable when add note button clicked
+clicked.subscribe(event => {
+	if(document.title !== 'Note-taking App'){
+		subscribe.error("It's the wrong page");
+	};
+
+	var li = document.createElement("li");
+	console.log("Button 'Add Note' clicked");
+
+	var noteDesc = document.getElementById("description").ariaValueMax;
+	var desc = document.createTextNode(noteDesc);
+	li.appendChild(desc);
+
+	//If nothing entered into the description box
+	if(noteDesc === '') {
+		alert("The description is blank!");
+	}
+	else {
+		document.getElementById("notes_list").appendChild(li);
+	};
+
+	document.getElementById("description").value = "";
+
+	//Sorting x beside each note
+	var x = document.querySelectorAll("li");
+	var span = document.createElement("SPAN");
+	var text = document.createTextNode("\u00D7");
+	span.className = "close";
+	span.appendChild(text);
+	li.appendChild(span);
+
+	var i = 0;
+	arrayClose = Array.from(close);
+	objectClose = arrayClose.map(index => {
+		const closeSrc = Rx.Observable.fromEvent(close[i], 'click');
+		closeSrc.subscribe(event => {
+			var section = closeSrc.sourceObj.parentElement;
+			section.style.display = "none";
+		});
+		i++;
+	});
+});
