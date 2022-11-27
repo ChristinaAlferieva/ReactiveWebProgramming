@@ -22,7 +22,7 @@ object = array.map(index => {
 });
 
 //Array for close element
-closeArray = Array.from(close)
+closeArray = Array.from(close);
 closeObject = closeArray.map(index => {
 	const clsSource = Rx.Observable.fromEvent(close[i], 'click');
 	clsSource.subscribe(event => {
@@ -35,13 +35,13 @@ closeObject = closeArray.map(index => {
 //Subscribing the observable when add note button clicked
 clicked.subscribe(event => {
 	if(document.title !== 'Note-taking App'){
-		subscribe.error("It's the wrong page");
+		subscribe.error("It's the wrong page!");
 	};
 
 	var li = document.createElement("li");
 	console.log("Button 'Add Note' clicked");
 
-	var noteDesc = document.getElementById("description").ariaValueMax;
+	var noteDesc = document.getElementById("description").value;
 	var desc = document.createTextNode(noteDesc);
 	li.appendChild(desc);
 
